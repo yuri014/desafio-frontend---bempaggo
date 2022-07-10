@@ -1,20 +1,20 @@
 <script>
-import Form from "./Form.vue";
+import Form from './Form.vue';
 export default {
-    data: () => ({
-        steps: ["Pedido", "Pagamento"],
-        currentStep: 0,
-    }),
-    computed: {
-        stepperProgress() {
-            const total = 100;
-            return `${(total / (this.steps.length - 1)) * this.currentStep}%`;
-        },
-        currentStepValue() {
-            return this.steps.at(this.currentStep);
-        },
+  data: () => ({
+    steps: ['Pedido', 'Pagamento'],
+    currentStep: 0,
+  }),
+  computed: {
+    stepperProgress() {
+      const total = 100;
+      return `${(total / (this.steps.length - 1)) * this.currentStep}%`;
     },
-    components: { Form }
+    currentStepValue() {
+      return this.steps.at(this.currentStep);
+    },
+  },
+  components: { Form },
 };
 </script>
 
