@@ -32,7 +32,7 @@ body {
 }
 
 .container {
-  max-width: 1378px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 </style>

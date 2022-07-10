@@ -20,8 +20,6 @@ header {
   margin-bottom: 2rem;
 
   .container {
-    width: 90vw;
-
     p {
       font-size: 2rem;
       font-weight: 300;
