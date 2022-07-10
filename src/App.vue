@@ -28,7 +28,7 @@ import FormWizard from './components/FormWizard.vue';
 }
 
 body {
-  background-color: #f1f0f0;
+  background-color: #dde2e9;
 }
 
 .container {

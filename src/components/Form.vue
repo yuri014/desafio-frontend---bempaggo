@@ -40,54 +40,70 @@ export default {
         </div>
       </div>
     </div>
-    <textarea name="obs" id="obs" cols="30" rows="10"></textarea>
+    <textarea
+      name="observations"
+      id="observations"
+      rows="5"
+      placeholder="Alguma dúvida? Recado?"
+    ></textarea>
   </form>
 </template>
 
 <style lang="scss">
-p {
-  font-size: 1.6rem;
-  font-weight: bold;
-}
+form {
+  p {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
 
-.stickers__container {
-  margin: 2rem 0;
+  textarea {
+    padding: 1rem;
+    width: 100%;
+    background-color: #dde2e9;
+    border: 1px solid #2f3676;
+    border-radius: 4px;
+  }
 
-  .sticker {
-    margin: 1rem 0;
-    width: 20rem;
-    display: grid;
-    grid-template-columns: 30% 30%;
-    align-items: center;
-    gap: 1rem;
+  .stickers__container {
+    margin: 2rem 0;
 
-    label {
-      font-size: 1.4rem;
-    }
+    .sticker {
+      margin: 1rem 0;
+      width: 20rem;
+      display: grid;
+      grid-template-columns: 30% 30%;
+      align-items: center;
+      gap: 1rem;
 
-    .sticker-buttons {
-      display: flex;
-      border-radius: 4px;
-      box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-
-      button {
-        border: none;
-        background-color: transparent;
-        color: #2f3676;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      label {
         font-size: 1.4rem;
-        font-weight: bold;
-        width: 2.5rem;
-        height: 2.5rem;
       }
 
-      input {
-        border: none;
-        width: 2.5rem;
-        height: 2.5rem;
-        text-align: center;
+      .sticker-buttons {
+        display: flex;
+        border-radius: 4px;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+
+        button {
+          border: none;
+          background-color: transparent;
+          color: #2f3676;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1.4rem;
+          font-weight: bold;
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+
+        input {
+          border: none;
+          width: 2.5rem;
+          height: 2.5rem;
+          text-align: center;
+          background-color: #f1f0f0;
+        }
       }
     }
   }

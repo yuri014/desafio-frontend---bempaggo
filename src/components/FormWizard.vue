@@ -61,7 +61,7 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper-stepper {
-  background-color: #fff;
+  background-color: #f1f0f0;
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
@@ -83,7 +83,7 @@ export default {
 
   &-progress {
     position: absolute;
-    background-color: #c5c5c5;
+    background-color: #bdbdbd;
     height: 2px;
     z-index: -1;
     left: 0;
@@ -105,7 +105,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #c5c5c5;
+  color: #bdbdbd;
   transition: all 500ms ease;
 
   &-counter {
@@ -113,9 +113,9 @@ export default {
     width: 4rem;
     display: grid;
     place-items: center;
-    background-color: #fff;
+    background-color: #f1f0f0;
     border-radius: 100%;
-    border: 2px solid #c5c5c5;
+    border: 2px solid #bdbdbd;
     position: relative;
 
     .icon-success {
@@ -171,7 +171,7 @@ export default {
   }
 
   .stepper-item-title {
-    color: #818181;
+    color: #333;
   }
 }
 
