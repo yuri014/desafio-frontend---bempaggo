@@ -54,7 +54,7 @@ export default {
   </form>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 form {
   p {
     font-size: 1.6rem;
