@@ -62,7 +62,7 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper-stepper {
-  background-color: #f1f0f0;
+  background-color: $bg-high;
   padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
@@ -84,7 +84,7 @@ export default {
 
   &-progress {
     position: absolute;
-    background-color: #bdbdbd;
+    background-color: $disabled-color;
     height: 2px;
     z-index: -1;
     left: 0;
@@ -96,7 +96,7 @@ export default {
       left: 0;
       height: 100%;
       width: 0%;
-      background-color: #2f3676;
+      background-color: $brand-color;
       transition: all 500ms ease;
     }
   }
@@ -106,7 +106,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #bdbdbd;
+  color: $disabled-color;
   transition: all 500ms ease;
 
   &-counter {
@@ -114,9 +114,9 @@ export default {
     width: 4rem;
     display: grid;
     place-items: center;
-    background-color: #f1f0f0;
+    background-color: $bg-high;
     border-radius: 100%;
-    border: 2px solid #bdbdbd;
+    border: 2px solid $disabled-color;
     position: relative;
 
     .icon-success {
@@ -142,9 +142,9 @@ export default {
 
 .stepper-item.success {
   .stepper-item-counter {
-    border-color: #2f3676;
-    background-color: #485091;
-    color: #fff;
+    border-color: $brand-color;
+    background-color: $brand-color-low;
+    color: $pure-white;
     font-weight: 600;
 
     .icon-success {
@@ -159,20 +159,20 @@ export default {
   }
 
   .stepper-item-title {
-    color: #2f3676;
+    color: $brand-color;
   }
 }
 
 .stepper-item.current {
   .stepper-item-counter {
-    border-color: #2f3676;
-    background-color: #2f3676;
-    color: #fff;
+    border-color: $brand-color;
+    background-color: $brand-color;
+    color: $pure-white;
     font-weight: 600;
   }
 
   .stepper-item-title {
-    color: #333;
+    color: $low-font-color;
   }
 }
 
@@ -182,7 +182,7 @@ export default {
 }
 
 .stepper-pane {
-  color: #333;
+  color: $low-font-color;
   min-height: 20rem;
   margin: 4rem 0;
 }
@@ -205,9 +205,9 @@ export default {
   border-radius: 4px;
   width: fit-content;
   font-size: 0.75rem;
-  color: #333;
-  background-color: #f0f0f0;
-  border-color: #f0f0f0;
+  color: $low-font-color;
+  background-color: $bg-high;
+  border-color: $bg-high;
 
   &:disabled {
     opacity: 0.5;
@@ -215,9 +215,9 @@ export default {
   }
 
   &--green-1 {
-    background-color: #2f3676;
-    border-color: #2f3676;
-    color: #fff;
+    background-color: $brand-color;
+    border-color: $brand-color;
+    color: $pure-white;
     margin-left: auto;
   }
 }

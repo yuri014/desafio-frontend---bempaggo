@@ -8,7 +8,7 @@ import FormWizard from './components/FormWizard.vue';
   <FormWizard />
 </template>
 
-<style>
+<style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
 :root {
   font-size: 60%;
@@ -24,11 +24,11 @@ import FormWizard from './components/FormWizard.vue';
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #eaedf0;
+  color: $high-font-color;
 }
 
 body {
-  background-color: #dde2e9;
+  background-color: $bg-low;
 }
 
 .container {

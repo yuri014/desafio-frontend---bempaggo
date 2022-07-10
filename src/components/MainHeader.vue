@@ -14,7 +14,7 @@
 
 <style lang="scss" scoped>
 header {
-  background-color: #2f3676;
+  background-color: $brand-color;
   width: 100vw;
   padding: 2rem;
   margin-bottom: 2rem;
@@ -23,12 +23,12 @@ header {
     p {
       font-size: 2rem;
       font-weight: 300;
-      color: #f1e7e8;
+      color: $bg-high;
     }
 
     strong {
       font-size: 2rem;
-      color: #fff;
+      color: $pure-white;
     }
   }
 }

@@ -64,8 +64,8 @@ form {
   textarea {
     padding: 1rem;
     width: 100%;
-    background-color: #dde2e9;
-    border: 1px solid #2f3676;
+    background-color: $bg-low;
+    border: 1px solid $brand-color;
     border-radius: 4px;
   }
 
@@ -93,7 +93,7 @@ form {
         button {
           border: none;
           background-color: transparent;
-          color: #2f3676;
+          color: $brand-color;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -108,7 +108,7 @@ form {
           width: 2.5rem;
           height: 2.5rem;
           text-align: center;
-          background-color: #f1f0f0;
+          background-color: $bg-high;
         }
       }
     }
