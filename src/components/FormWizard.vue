@@ -1,5 +1,6 @@
 <script>
-import Form from './Form.vue';
+import StickersForm from './StickersForm.vue';
+
 export default {
   data: () => ({
     steps: ['Pedido', 'Pagamento'],
@@ -14,7 +15,7 @@ export default {
       return this.steps.at(this.currentStep);
     },
   },
-  components: { Form },
+  components: { StickersForm },
 };
 </script>
 
@@ -46,7 +47,7 @@ export default {
 
     <div class="stepper-content" v-for="item in steps" :key="item">
       <div class="stepper-pane" v-if="currentStepValue == item">
-        <Form />
+        <StickersForm />
       </div>
     </div>
 

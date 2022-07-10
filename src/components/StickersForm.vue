@@ -14,13 +14,13 @@ export default {
     },
   }),
   methods: {
-    capitalize: (word) => word.charAt(0).toUpperCase() + word.slice(1),
+    capitalize: word => word.charAt(0).toUpperCase() + word.slice(1),
     incrementCount(sticker) {
-      this.stickers[sticker].count++;
+      this.stickers[sticker].count += 1;
     },
     decrementCount(sticker) {
       if (this.stickers[sticker].count !== 0) {
-        this.stickers[sticker].count--;
+        this.stickers[sticker].count -= 1;
       }
     },
   },
@@ -31,11 +31,16 @@ export default {
   <form class="container">
     <p>Quais adesivos:</p>
     <div class="stickers__container">
-      <div class="sticker" v-for="sticker in Object.keys(stickers)">
+      <div class="sticker" v-for="sticker in Object.keys(stickers)" :key="sticker">
         <label :for="sticker">{{ capitalize(sticker) }}</label>
         <div class="sticker-buttons">
           <button type="button" @click="decrementCount(sticker)">-</button>
-          <input type="number" :name="sticker" :id="sticker" :value="stickers[sticker].count" />
+          <input
+            type="number"
+            :name="sticker"
+            :id="sticker"
+            :value="stickers[sticker].count"
+          />
           <button type="button" @click="incrementCount(sticker)">+</button>
         </div>
       </div>
@@ -82,7 +87,8 @@ form {
       .sticker-buttons {
         display: flex;
         border-radius: 4px;
-        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 
         button {
           border: none;

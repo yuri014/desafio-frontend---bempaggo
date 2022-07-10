@@ -1,10 +1,10 @@
 <script setup>
-import Header from './components/Header.vue';
+import MainHeader from './components/MainHeader.vue';
 import FormWizard from './components/FormWizard.vue';
 </script>
 
 <template>
-  <Header />
+  <MainHeader />
   <FormWizard />
 </template>
 
