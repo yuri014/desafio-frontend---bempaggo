@@ -97,7 +97,7 @@ export default {
       height: 100%;
       width: 0%;
       background-color: $brand-color;
-      transition: all 500ms ease;
+      transition: $default-transition;
     }
   }
 }
@@ -107,7 +107,7 @@ export default {
   flex-direction: column;
   align-items: center;
   color: $disabled-color;
-  transition: all 500ms ease;
+  transition: $default-transition;
 
   &-counter {
     height: 4rem;
@@ -124,12 +124,12 @@ export default {
       opacity: 0;
       transform: scale(0);
       width: 1.2rem;
-      transition: all 500ms ease;
+      transition: $default-transition;
     }
 
     .number {
       font-size: 22px;
-      transition: all 500ms ease;
+      transition: $default-transition;
     }
   }
 
