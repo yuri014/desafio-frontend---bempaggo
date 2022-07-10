@@ -53,7 +53,7 @@ export default {
 
     <div class="controls">
       <button class="btn" @click="currentStep--" :disabled="currentStep == 0">Anterior</button>
-      <button class="btn btn--green-1" @click="currentStep++" :disabled="currentStep == 1">
+      <button class="btn btn-success" @click="currentStep++" :disabled="currentStep == 1">
         Seguinte
       </button>
     </div>
@@ -189,32 +189,34 @@ export default {
 
 .controls {
   display: flex;
+  gap: 2rem;
 }
 
 .btn {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 6px 16px;
+  place-content: center;
+  padding: 0.8rem 1.6rem;
   border: 1px solid;
   text-align: center;
-  vertical-align: middle;
   cursor: pointer;
-  line-height: 1.5;
   transition: all 150ms;
   border-radius: 4px;
   width: fit-content;
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   color: $low-font-color;
-  background-color: $bg-high;
-  border-color: $bg-high;
+  background-color: $bg-low;
+  border-color: $bg-low;
 
   &:disabled {
     opacity: 0.5;
-    pointer-events: none;
+    cursor: not-allowed;
+    
+    &:active {
+      pointer-events: none;
+    }
   }
 
-  &--green-1 {
+  &-success {
     background-color: $brand-color;
     border-color: $brand-color;
     color: $pure-white;
