@@ -1,9 +1,9 @@
 <script>
-import RequestForm from './RequestForm.vue';
+import { defineAsyncComponent, ref } from 'vue';
 
 export default {
   data: () => ({
-    steps: ['Pedido', 'Pagamento'],
+    steps: ['Pedido', 'Forma de Pagamento', 'Pagamento'],
     currentStep: 0,
   }),
   computed: {
@@ -15,7 +15,16 @@ export default {
       return this.steps.at(this.currentStep);
     },
   },
-  components: { RequestForm },
+  components: {
+    RequestForm: defineAsyncComponent(() => import('./RequestForm.vue')),
+  },
+  setup() {
+    const forms = ref(['RequestForm']);
+
+    return {
+      forms
+    };
+  },
 };
 </script>
 
@@ -23,11 +32,17 @@ export default {
   <div class="wrapper-stepper container">
     <div class="stepper">
       <div class="stepper-progress">
-        <div class="stepper-progress-bar" :style="'width:' + stepperProgress"></div>
+        <div
+          class="stepper-progress-bar"
+          :style="'width:' + stepperProgress"
+        ></div>
       </div>
       <div
         class="stepper-item"
-        :class="{ current: currentStepValue == item, success: currentStep > steps.indexOf(item) }"
+        :class="{
+          current: currentStepValue == item,
+          success: currentStep > steps.indexOf(item),
+        }"
         v-for="item in steps"
         :key="item"
       >
@@ -41,19 +56,25 @@ export default {
             {{ steps.indexOf(item) + 1 }}
           </span>
         </div>
-        <span class="stepper-item-title"> {{ item }} </span>
+        <p class="stepper-item-title"> {{ item }} </p>
       </div>
     </div>
 
-    <div class="stepper-content" v-for="item in steps" :key="item">
-      <div class="stepper-pane" v-if="currentStepValue == item">
-        <RequestForm />
+    <div class="stepper-content" v-for="(form, index) in forms" :key="form">
+      <div class="stepper-pane" v-if="this.currentStep == index">
+        <component :is="form"></component>
       </div>
     </div>
 
     <div class="controls">
-      <button class="btn" @click="currentStep--" :disabled="currentStep == 0">Anterior</button>
-      <button class="btn btn-success" @click="currentStep++" :disabled="currentStep == 1">
+      <button class="btn" @click="currentStep--" :disabled="currentStep == 0">
+        Anterior
+      </button>
+      <button
+        class="btn btn-success"
+        @click="currentStep++"
+        :disabled="currentStep == steps.length - 1"
+      >
         Seguinte
       </button>
     </div>
@@ -77,7 +98,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 60%;
+  width: 80%;
   position: relative;
   z-index: 0;
   margin-bottom: 24px;
@@ -135,8 +156,10 @@ export default {
 
   &-title {
     position: absolute;
-    font-size: 14px;
-    bottom: -24px;
+    font-size: 1.4rem;
+    margin-top: 5rem;
+    text-align: center;
+    width: 10rem;
   }
 }
 
@@ -210,7 +233,7 @@ export default {
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    
+
     &:active {
       pointer-events: none;
     }
