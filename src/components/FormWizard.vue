@@ -17,9 +17,10 @@ export default {
   },
   components: {
     RequestForm: defineAsyncComponent(() => import('./RequestForm.vue')),
+    PaymentMethodForm: defineAsyncComponent(() => import('./PaymentMethodForm.vue')),
   },
   setup() {
-    const forms = ref(['RequestForm']);
+    const forms = ref(['RequestForm', 'PaymentMethodForm']);
 
     return {
       forms
