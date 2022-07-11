@@ -9,7 +9,6 @@ import FormWizard from './components/FormWizard.vue';
 </template>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
 :root {
   font-size: 60%;
 }
