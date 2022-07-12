@@ -93,6 +93,7 @@ export default {
   border-radius: 32px;
   box-shadow: 0 8px 12px rgba($color: #000000, $alpha: 0.09);
   width: 90vw;
+  max-width: 60rem;
 }
 
 .stepper {
@@ -150,14 +151,14 @@ export default {
     }
 
     .number {
-      font-size: 22px;
+      font-size: 2rem;
       transition: $default-transition;
     }
   }
 
   &-title {
     position: absolute;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-top: 5rem;
     text-align: center;
     width: 10rem;
@@ -226,7 +227,7 @@ export default {
   transition: all 150ms;
   border-radius: 4px;
   width: fit-content;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   color: $low-font-color;
   background-color: $bg-low;
   border-color: $bg-low;

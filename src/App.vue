@@ -31,7 +31,7 @@ body {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 60rem;
   margin: 0 auto;
 }
 </style>

@@ -57,7 +57,7 @@ export default {
 <style lang="scss" scoped>
 form {
   p {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: bold;
   }
 
@@ -81,7 +81,7 @@ form {
       gap: 1rem;
 
       label {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
       }
 
       .sticker-buttons {
@@ -97,7 +97,7 @@ form {
           display: flex;
           justify-content: center;
           align-items: center;
-          font-size: 1.4rem;
+          font-size: 1.6rem;
           font-weight: bold;
           width: 2.5rem;
           height: 2.5rem;

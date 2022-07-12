@@ -27,10 +27,23 @@ header {
   background-position: center center;
   position: relative;
 
+  @media (min-width: 720px) {
+    background-color: $brand-color;
+    height: 14rem;
+    margin-bottom: 4rem;
+  }
+
   .container {
     padding: 2rem;
     padding-bottom: 0;
-    display: flex;
+    display: grid;
+    grid-template-columns: 55% 45%;
+
+    @media (min-width: 720px) {
+      padding: 2rem 0;
+      justify-content: space-between;
+    }
+
     p {
       font-size: 2rem;
       font-weight: 300;
@@ -42,12 +55,20 @@ header {
       color: $pure-white;
     }
 
-    svg {
-      position: absolute;
-      transform: scale(0.6) rotateX(35deg);
-      fill: #191647;
-      margin-top: -8rem;
-      margin-left: -5rem;
+    .package-icon {
+      width: 100%;
+      svg {
+        position: absolute;
+        transform: scale(0.6) rotateX(35deg);
+        fill: #191647;
+        margin-top: -8rem;
+        margin-left: -4rem;
+
+        @media (min-width: 720px) {
+          width: max-content;
+          margin-left: 0;
+        }
+      }
     }
   }
 }

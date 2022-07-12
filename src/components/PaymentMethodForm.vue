@@ -30,7 +30,7 @@ div {
     background-color: $bg-low;
     border-radius: 4px;
     padding: 2rem;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 }
 </style>
