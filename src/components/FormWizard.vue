@@ -20,9 +20,10 @@ export default {
     PaymentMethodForm: defineAsyncComponent(() =>
       import('./PaymentMethodForm.vue'),
     ),
+    PaymentForm: defineAsyncComponent(() => import('./PaymentForm.vue'))
   },
   setup() {
-    const forms = ref(['RequestForm', 'PaymentMethodForm']);
+    const forms = ref(['RequestForm', 'PaymentMethodForm', 'PaymentForm']);
 
     return {
       forms,
@@ -218,7 +219,7 @@ form {
 .stepper-pane {
   color: $low-font-color;
   min-height: 20rem;
-  margin: 4rem 0;
+  margin: 4rem 0 2rem 0;
 }
 
 .controls {

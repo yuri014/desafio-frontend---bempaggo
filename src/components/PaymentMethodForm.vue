@@ -3,7 +3,7 @@
 <template>
   <div>
     <label for="creditCard">
-      <input type="radio" name="payment-method" id="creditCard" />
+      <input type="radio" name="payment-method" id="creditCard" checked />
       Cartão de Crédito
     </label>
     <label for="bill">
