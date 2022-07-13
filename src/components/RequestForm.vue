@@ -28,7 +28,7 @@ export default {
 </script>
 
 <template>
-  <form class="container">
+  <div class="request-form container">
     <p>Quais adesivos:</p>
     <div class="stickers__container">
       <div class="sticker" v-for="sticker in Object.keys(stickers)" :key="sticker">
@@ -40,6 +40,7 @@ export default {
             :name="sticker"
             :id="sticker"
             :value="stickers[sticker].count"
+            min="0"
           />
           <button type="button" @click="incrementCount(sticker)">+</button>
         </div>
@@ -51,11 +52,11 @@ export default {
       rows="5"
       placeholder="Alguma dúvida? Recado?"
     ></textarea>
-  </form>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-form {
+.request-form {
   p {
     font-size: 1.8rem;
     font-weight: bold;

@@ -17,13 +17,15 @@ export default {
   },
   components: {
     RequestForm: defineAsyncComponent(() => import('./RequestForm.vue')),
-    PaymentMethodForm: defineAsyncComponent(() => import('./PaymentMethodForm.vue')),
+    PaymentMethodForm: defineAsyncComponent(() =>
+      import('./PaymentMethodForm.vue'),
+    ),
   },
   setup() {
     const forms = ref(['RequestForm', 'PaymentMethodForm']);
 
     return {
-      forms
+      forms,
     };
   },
 };
@@ -57,28 +59,30 @@ export default {
             {{ steps.indexOf(item) + 1 }}
           </span>
         </div>
-        <p class="stepper-item-title"> {{ item }} </p>
+        <p class="stepper-item-title">{{ item }}</p>
       </div>
     </div>
 
-    <div class="stepper-content" v-for="(form, index) in forms" :key="form">
-      <div class="stepper-pane" v-if="this.currentStep == index">
-        <component :is="form"></component>
+    <form>
+      <div class="stepper-content" v-for="(form, index) in forms" :key="form">
+        <div class="stepper-pane" v-if="this.currentStep == index">
+          <component :is="form"></component>
+        </div>
       </div>
-    </div>
 
-    <div class="controls">
-      <button class="btn" @click="currentStep--" :disabled="currentStep == 0">
-        Anterior
-      </button>
-      <button
-        class="btn btn-success"
-        @click="currentStep++"
-        :disabled="currentStep == steps.length - 1"
-      >
-        Seguinte
-      </button>
-    </div>
+      <div class="controls">
+        <button class="btn" @click="currentStep--" :disabled="currentStep == 0">
+          Anterior
+        </button>
+        <button
+          class="btn btn-success"
+          @click="currentStep++"
+          :disabled="currentStep == steps.length - 1"
+        >
+          Seguinte
+        </button>
+      </div>
+    </form>
   </div>
 </template>
 
@@ -124,6 +128,11 @@ export default {
       transition: $default-transition;
     }
   }
+}
+
+form {
+  width: 100%;
+  padding: 0 2rem;
 }
 
 .stepper-item {
@@ -202,11 +211,6 @@ export default {
   }
 }
 
-.stepper-content {
-  width: 100%;
-  padding: 0 2rem;
-}
-
 .stepper-pane {
   color: $low-font-color;
   min-height: 20rem;
@@ -216,11 +220,11 @@ export default {
 .controls {
   display: flex;
   gap: 2rem;
+  width: fit-content;
+  margin: 0 auto;
 }
 
 .btn {
-  display: flex;
-  place-content: center;
   padding: 0.8rem 1.6rem;
   border: 1px solid;
   text-align: center;
