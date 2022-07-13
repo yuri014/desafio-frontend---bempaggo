@@ -71,14 +71,18 @@ export default {
       </div>
 
       <div class="controls">
-        <button class="btn" @click="currentStep--" :disabled="currentStep == 0">
+        <button
+          class="btn"
+          type="button"
+          @click="currentStep--"
+          :disabled="currentStep == 0"
+        >
           Anterior
         </button>
-        <button
-          class="btn btn-success"
-          @click="currentStep++"
-          :disabled="currentStep == steps.length - 1"
-        >
+        <button v-if="currentStep === steps.length - 1" class="btn btn-success" type="submit">
+          Enviar
+        </button>
+        <button v-else class="btn btn-success" @click="currentStep++" type="button">
           Seguinte
         </button>
       </div>
