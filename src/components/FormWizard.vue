@@ -84,6 +84,7 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper-stepper {
+  min-height: 35rem;
   background-color: $bg-high;
   padding: 2rem 1rem;
   display: flex;
