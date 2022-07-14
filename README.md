@@ -1,7 +1,7 @@
-# Vue 3 + Vite
+# Scripts
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+> Comando: `npm i` ou `yarn` para instalar as dependências.
 
-## Recommended IDE Setup
+> Comando: `npm run dev` ou `yarn dev` para criar um servidor local com Live Reload na porta 3000.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+> Comando: `npm run test` ou `yarn test` para rodar os testes.
