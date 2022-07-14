@@ -2,6 +2,7 @@
 import { ErrorMessage, Field } from 'vee-validate';
 
 export default {
+  props: ['formData'],
   data: () => ({
     stickers: {
       react: 0,
@@ -9,6 +10,13 @@ export default {
       angular: 0,
     },
   }),
+  created() {
+    this.stickers = {
+      react: this.formData.react,
+      vue: this.formData.vue,
+      angular: this.formData.angular,
+    }
+  },
   components: {
     Field,
     ErrorMessage,
@@ -57,6 +65,7 @@ export default {
       id="observations"
       rows="5"
       placeholder="Alguma dúvida? Recado?"
+      :value="formData.observations"
     ></Field>
   </div>
 </template>

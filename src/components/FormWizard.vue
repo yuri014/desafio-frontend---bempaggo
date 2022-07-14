@@ -8,6 +8,11 @@ export default {
     steps: ['Pedido', 'Forma de Pagamento', 'Pagamento'],
     currentStep: 0,
     formData: yupSchema,
+    formValues: {
+      react: 0,
+      vue: 0,
+      angular: 0,
+    },
   }),
   computed: {
     stepperProgress() {
@@ -36,7 +41,7 @@ export default {
         return;
       }
 
-      Object.assign(this.formData, values);
+      Object.assign(this.formValues, values);
       this.currentStep += 1;
     },
   },
@@ -82,13 +87,10 @@ export default {
       </div>
     </div>
 
-    <Form
-      @submit="onSubmit"
-      :validation-schema="currentSchema"
-    >
+    <Form @submit="onSubmit" :validation-schema="currentSchema">
       <div class="stepper-content" v-for="(form, index) in forms" :key="form">
         <div class="stepper-pane" v-if="this.currentStep == index">
-          <component :is="form"></component>
+          <component :is="form" :form-data="formValues"></component>
         </div>
       </div>
 

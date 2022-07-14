@@ -9,8 +9,8 @@ const yupSchema = [
   yup
     .object({
       react: yup.number().min(0, min),
-      angular: yup.number().min(0, min),
       vue: yup.number().min(0, min),
+      angular: yup.number().min(0, min),
       observations: yup.string(),
     })
     .test('angular', null, obj => {
