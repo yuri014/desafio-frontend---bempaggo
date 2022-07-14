@@ -1,26 +1,26 @@
 <script>
+import { ErrorMessage, Field } from 'vee-validate';
+
 export default {
   data: () => ({
     stickers: {
-      react: {
-        count: 0,
-      },
-      vue: {
-        count: 0,
-      },
-      angular: {
-        count: 0,
-      },
+      react: 0,
+      vue: 0,
+      angular: 0,
     },
   }),
+  components: {
+    Field,
+    ErrorMessage,
+  },
   methods: {
     capitalize: word => word.charAt(0).toUpperCase() + word.slice(1),
     incrementCount(sticker) {
-      this.stickers[sticker].count += 1;
+      this.stickers[sticker] += 1;
     },
     decrementCount(sticker) {
-      if (this.stickers[sticker].count !== 0) {
-        this.stickers[sticker].count -= 1;
+      if (this.stickers[sticker] !== 0) {
+        this.stickers[sticker] -= 1;
       }
     },
   },
@@ -31,27 +31,34 @@ export default {
   <div class="request-form container">
     <p>Quais adesivos:</p>
     <div class="stickers__container">
-      <div class="sticker" v-for="sticker in Object.keys(stickers)" :key="sticker">
+      <div
+        class="sticker"
+        v-for="sticker in Object.keys(stickers)"
+        :key="sticker"
+      >
         <label :for="sticker">{{ capitalize(sticker) }}</label>
         <div class="sticker-buttons">
           <button type="button" @click="decrementCount(sticker)">-</button>
-          <input
+          <Field
             type="number"
             :name="sticker"
             :id="sticker"
-            :value="stickers[sticker].count"
+            v-model="stickers[sticker]"
             min="0"
           />
+          <ErrorMessage :name="sticker" />
           <button type="button" @click="incrementCount(sticker)">+</button>
         </div>
       </div>
     </div>
-    <textarea
+    <Field
+      as="textarea"
       name="observations"
       id="observations"
       rows="5"
       placeholder="Alguma dúvida? Recado?"
-    ></textarea>
+    ></Field>
+    <ErrorMessage name="sticker" />
   </div>
 </template>
 

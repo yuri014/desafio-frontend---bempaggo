@@ -1,10 +1,13 @@
 <script>
 import { defineAsyncComponent, ref } from 'vue';
+import { Form } from 'vee-validate';
+import yupSchema from './utils/schema';
 
 export default {
   data: () => ({
     steps: ['Pedido', 'Forma de Pagamento', 'Pagamento'],
     currentStep: 0,
+    formData: yupSchema,
   }),
   computed: {
     stepperProgress() {
@@ -14,13 +17,28 @@ export default {
     currentStepValue() {
       return this.steps.at(this.currentStep);
     },
+    currentSchema() {
+      return this.formData[this.currentStep];
+    },
   },
   components: {
     RequestForm: defineAsyncComponent(() => import('./RequestForm.vue')),
     PaymentMethodForm: defineAsyncComponent(() =>
       import('./PaymentMethodForm.vue'),
     ),
-    PaymentForm: defineAsyncComponent(() => import('./PaymentForm.vue'))
+    PaymentForm: defineAsyncComponent(() => import('./PaymentForm.vue')),
+    // eslint-disable-next-line vue/no-reserved-component-names
+    Form,
+  },
+  methods: {
+    onSubmit(values) {
+      if (this.currentStep === this.steps.length - 1) {
+        return;
+      }
+
+      Object.assign(this.formData, values);
+      this.currentStep += 1;
+    },
   },
   setup() {
     const forms = ref(['RequestForm', 'PaymentMethodForm', 'PaymentForm']);
@@ -64,7 +82,10 @@ export default {
       </div>
     </div>
 
-    <form>
+    <Form
+      @submit="onSubmit"
+      :validation-schema="currentSchema"
+    >
       <div class="stepper-content" v-for="(form, index) in forms" :key="form">
         <div class="stepper-pane" v-if="this.currentStep == index">
           <component :is="form"></component>
@@ -80,14 +101,11 @@ export default {
         >
           Anterior
         </button>
-        <button v-if="currentStep === steps.length - 1" class="btn btn-success" type="submit">
-          Enviar
-        </button>
-        <button v-else class="btn btn-success" @click="currentStep++" type="button">
-          Seguinte
+        <button class="btn btn-success" type="submit">
+          {{ currentStep === steps.length - 1 ? 'Enviar' : 'Seguinte' }}
         </button>
       </div>
-    </form>
+    </Form>
   </div>
 </template>
 

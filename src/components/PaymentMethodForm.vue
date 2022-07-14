@@ -1,19 +1,35 @@
-<script setup></script>
+<script>
+import { ErrorMessage, Field } from 'vee-validate';
+
+export default {
+  components: {
+    Field,
+    ErrorMessage,
+  },
+};
+</script>
 
 <template>
   <div>
     <label for="creditCard">
-      <input type="radio" name="payment-method" id="creditCard" checked />
+      <Field
+        type="radio"
+        name="paymentMethod"
+        id="creditCard"
+        value="creditCard"
+        checked
+      />
       Cartão de Crédito
     </label>
     <label for="bill">
-      <input type="radio" name="payment-method" id="bill" />
+      <Field type="radio" name="paymentMethod" id="bill" value="bill" />
       Boleto
     </label>
     <label for="pix">
-      <input type="radio" name="payment-method" id="pix" />
+      <Field type="radio" name="paymentMethod" id="pix" value="pix" />
       Pix
     </label>
+    <ErrorMessage name="paymentMethod" />
   </div>
 </template>
 

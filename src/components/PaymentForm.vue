@@ -1,35 +1,60 @@
-<script setup></script>
+<script>
+import { Field } from 'vee-validate';
+
+export default {
+  components: {
+    Field,
+  },
+};
+</script>
 
 <template>
   <div class="payment">
     <label for="cardNumber">Número do Cartão:</label>
-    <input
+    <Field
       id="cardNumber"
+      name="cardNumber"
       type="text"
       inputmode="numeric"
       autocomplete="cc-number"
     />
-    <label for="cardName">Nome no Cartão:</label>
-    <input
-      id="cardNumber"
+    <label for="nameOnCard">Nome no Cartão:</label>
+    <Field
+      id="nameOnCard"
+      name="nameOnCard"
       type="text"
       inputmode="numeric"
       autocomplete="cc-name"
     />
     <div class="input-group">
       <div>
-        <label for="cardExp">Vencimento:</label>
-        <input
-          id="cardExp"
-          type="text"
-          inputmode="numeric"
-          autocomplete="cc-exp"
-        />
+        <fieldset>
+          <legend>Vencimento:</legend>
+          <Field
+            id="expiryMonth"
+            name="expiryMonth"
+            type="text"
+            inputmode="numeric"
+            autocomplete="cc-exp-month"
+            placeholder="Mês"
+            title="Mês"
+          />
+          <Field
+            id="expiryYear"
+            name="expiryYear"
+            type="text"
+            inputmode="numeric"
+            autocomplete="cc-exp-year"
+            placeholder="Ano"
+            title="Ano"
+          />
+        </fieldset>
       </div>
       <div>
-        <label for="cardCVV">Código de Segurança:</label>
-        <input
-          id="cardCVV"
+        <label for="cvc">Código de Segurança:</label>
+        <Field
+          id="cvc"
+          name="cvc"
           type="text"
           inputmode="numeric"
           autocomplete="cc-csc"
