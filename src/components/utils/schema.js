@@ -16,7 +16,11 @@ const yupSchema = [
       return new yup.ValidationError(null, null, 'is-one-selected');
     })
     .required(),
-  yup.string().oneOf(['creditCard', 'bill', 'pix']).required(),
+  yup
+    .object({
+      paymentMethod: yup.string().oneOf(['creditCard', 'bill', 'pix']).required(),
+    })
+    .required(),
   yup
     .object()
     .optional()
