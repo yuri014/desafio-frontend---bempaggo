@@ -2,6 +2,7 @@
 import { ErrorMessage, Field } from 'vee-validate';
 
 export default {
+  props: ['formData'],
   components: {
     ErrorMessage,
     Field,
@@ -10,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <div class="payment">
+  <div class="payment" v-if="formData.paymentMethod === 'creditCard'">
     <label for="cardNumber">Número do Cartão:</label>
     <Field
       id="cardNumber"
@@ -72,9 +73,24 @@ export default {
       </div>
     </div>
   </div>
+  <div v-else-if="formData.paymentMethod === 'pix'">
+    <p>
+      Ao enviar seu pedido enviaremos o QR Code e o Pix Copia e Cola para o seu
+      email!
+    </p>
+  </div>
+  <div v-else>
+    <p>Ao enviar seu pedido enviaremos o Boleto para o seu email!</p>
+  </div>
 </template>
 
 <style lang="scss" scoped>
+p {
+  font-size: 1.8rem;
+  text-align: center;
+  padding-top: 3rem;
+}
+
 .payment {
   display: flex;
   flex-direction: column;
