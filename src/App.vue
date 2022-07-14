@@ -34,4 +34,10 @@ body {
   max-width: 60rem;
   margin: 0 auto;
 }
+
+.error {
+  color: $error;
+  font-size: 1.4rem;
+  width: max-content;
+}
 </style>

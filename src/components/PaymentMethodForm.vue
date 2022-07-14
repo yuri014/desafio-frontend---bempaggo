@@ -29,7 +29,7 @@ export default {
       <Field type="radio" name="paymentMethod" id="pix" value="pix" />
       Pix
     </label>
-    <ErrorMessage name="paymentMethod" />
+    <ErrorMessage class="error" name="paymentMethod" />
   </div>
 </template>
 

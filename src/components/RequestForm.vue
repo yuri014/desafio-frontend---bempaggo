@@ -46,9 +46,9 @@ export default {
             v-model="stickers[sticker]"
             min="0"
           />
-          <ErrorMessage :name="sticker" />
           <button type="button" @click="incrementCount(sticker)">+</button>
         </div>
+        <ErrorMessage class="error" :name="sticker" />
       </div>
     </div>
     <Field
@@ -58,7 +58,6 @@ export default {
       rows="5"
       placeholder="Alguma dúvida? Recado?"
     ></Field>
-    <ErrorMessage name="sticker" />
   </div>
 </template>
 
