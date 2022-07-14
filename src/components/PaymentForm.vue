@@ -97,6 +97,19 @@ export default {
       margin-top: 1rem;
       width: 100%;
     }
+
+    fieldset {
+      border: none;
+
+      legend {
+        font-size: 1.4rem;
+      }
+
+      input {
+        width: 40%;
+        margin-right: 1rem;
+      }
+    }
   }
 }
 </style>
