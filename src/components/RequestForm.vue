@@ -46,7 +46,7 @@ export default {
       >
         <label :for="sticker">{{ capitalize(sticker) }}</label>
         <div class="sticker-buttons">
-          <button type="button" @click="decrementCount(sticker)">-</button>
+          <button type="button" :id="`${sticker}Decrement`" @click="decrementCount(sticker)">-</button>
           <Field
             type="number"
             :name="sticker"
@@ -54,7 +54,7 @@ export default {
             v-model="stickers[sticker]"
             min="0"
           />
-          <button type="button" @click="incrementCount(sticker)">+</button>
+          <button type="button" :id="`${sticker}Increment`" @click="incrementCount(sticker)">+</button>
         </div>
         <ErrorMessage class="error" :name="sticker" />
       </div>
